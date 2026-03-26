@@ -1,10 +1,13 @@
-export default async function ServerComponent() {
-    return (
-      <div className="rounded-xl bg-gray-50 p-6 shadow-sm mb-4">
-        <h2 className="text-xl font-bold mb-2">Server Component</h2>
-        <p className="text-gray-600">
-        This was rendered directly on the server. The point closest to the database continues!
+export default function ServerComponent({ temp }: { temp: number }) {
+  return (
+    <div className="rounded-2xl bg-white p-8 shadow-md border border-gray-200">
+      <h2 className="text-xl font-semibold mb-4 text-gray-700">Madison Weather (Server-Side)</h2>
+      <div className="flex items-center gap-4">
+        <span className="text-5xl font-extrabold text-blue-600">{temp}°C</span>
+        <p className="text-sm text-gray-500 leading-tight">
+          This data was fetched on the server <br /> and rendered as static HTML.
         </p>
       </div>
-    );
-  }
+    </div>
+  );
+}

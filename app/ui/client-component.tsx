@@ -1,24 +1,30 @@
 'use client';
-
 import { useState } from 'react';
 
-export default function ClientComponent() {
-  const [counter, setCounter] = useState(0);
+export default function ClientComponent({ temp }: { temp: number }) {
+  const [isFahrenheit, setIsFahrenheit] = useState(false);
+  
+  // Formula: (Celsius * 9/5) + 32
+  const fahrenheit = (temp * 9/5) + 32;
 
   return (
-    <div className="rounded-xl bg-blue-50 p-6 shadow-sm border border-blue-100">
-      <h2 className="text-xl font-bold mb-2 text-blue-900">Client Component</h2>
-      <p className="mb-4">test</p>
+    <div className="rounded-2xl bg-blue-600 p-8 shadow-lg text-white">
+      <h2 className="text-xl font-semibold mb-4 opacity-90">Madison Weather (Client-Side)</h2>
       
-      <div className="flex items-center gap-4">
-        <span className="text-2xl font-mono font-bold">{counter}</span>
-        <button
-          onClick={() => setCounter(counter + 1)}
-          className="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 transition-colors"
-        >
-         Click and Increase
-        </button>
+      <div className="text-5xl font-extrabold mb-6">
+        {isFahrenheit ? `${fahrenheit.toFixed(1)}°F` : `${temp}°C`}
       </div>
+      
+      <button 
+        onClick={() => setIsFahrenheit(!isFahrenheit)}
+        className="px-6 py-2 bg-white text-blue-600 font-bold rounded-full hover:bg-blue-50 transition-all shadow-md"
+      >
+        Switch to {isFahrenheit ? 'Celsius' : 'Fahrenheit'}
+      </button>
+      
+      <p className="text-xs mt-4 opacity-75">
+        Interactive toggle powered by React State (Client-Side).
+      </p>
     </div>
   );
 }
