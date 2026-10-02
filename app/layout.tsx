@@ -1,22 +1,24 @@
-'use client'; // 1. Bu satırı en üste ekle
-
-// Eğer global.css, layout.tsx ile AYNI klasördeyse (app içinde):
-import './globals.css'; 
-
-// fonts.ts dosyası hala ui klasörünün içindeyse bu kalsın:
+import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
+import './globals.css';
 import { inter } from './ui/fonts';
 
-// 2. export const metadata = { ... } kısmını tamamen SİL.
-// Çünkü 'use client' kullanılan dosyalarda metadata desteklenmez.
+export const metadata: Metadata = {
+  title: 'Madison Weather Dashboard',
+  description:
+    'A weather dashboard for Madison, Wisconsin, with forecast data from the 7Timer API and Celsius/Fahrenheit conversion.',
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
