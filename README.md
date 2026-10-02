@@ -3,6 +3,9 @@
 A weather dashboard for Madison, Wisconsin, built with Next.js, React, TypeScript, and Tailwind CSS.
 
 The application fetches temperature forecast data from the 7Timer API on the server and lets users switch between Celsius and Fahrenheit through an interactive client component.
+## Screenshot
+
+![Madison Weather Dashboard](docs/weather-dashboard.png)
 
 ## Features
 
